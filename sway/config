@@ -17,7 +17,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun | xargs swaymsg exec --
+set $menu wofi --show drun | xargs swaymsg exec --
 # filemanager
 set $filemanager thunar
 ### Output configuration
@@ -65,6 +65,16 @@ output * bg ~/bg.png fill
 # cursor theme
 seat seat0 xcursor_theme "Posy's Cursor Strokeless" 32
 
+
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Awesthetic-dark'
+    gsettings set $gnome-schema icon-theme "Papirus-Dark"
+    gsettings set $gnome-schema cursor-theme "Posy's Cursor Strokeless"
+    # gsettings set $gnome-schema font-name 'Your font name'
+}
 ### Key bindings
 #
 # Basics:

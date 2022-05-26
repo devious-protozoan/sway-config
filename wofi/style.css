@@ -2,36 +2,44 @@
 
 #window {
 margin: 5px;
-border: 2px solid red;
-background-color: red;
+background-color: --wofi-color0;
+color: --wofi-color7;
 }
 
 #input {
 margin: 5px;
-border: 2px solid blue;
-background-color: blue;
+border: 0;
+background-color: --wofi-color8;
+color: --wofi-color-15;
 }
 
 #inner-box {
 margin: 5px;
-border: 2px solid yellow;
-background-color: yellow;
+border: 0;
+
 }
 
 #outer-box {
-margin: 5px;
-border: 2px solid green;
-background-color: green;
+margin: 0px;
+border: 0;
 }
 
 #scroll {
 margin: 5px;
-border: 2px solid orange;
-background-color: orange;
+border: 0;
 }
 
 #text {
 margin: 5px;
-border: 2px solid cyan;
-background-color: cyan;
+border: 0;
+}
+
+
+#text:selected {
+color: --wofi-color6;
+}
+
+#entry:selected {
+    background-color: transparent;
+    border: 0;
 }
