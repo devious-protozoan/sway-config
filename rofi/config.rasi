@@ -1,0 +1,21 @@
+/*-*- mode: css; -*-*/
+
+configuration {
+  modi: "drun,filebrowser,ssh";
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
+  kb-row-tab: "";
+  kb-mode-next: "Tab";
+  opacity: 50;
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method: "name";
+  }
+}
+
+
+@import "~/.cache/wal/colors-rofi-dark"

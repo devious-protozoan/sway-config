@@ -1,4 +1,7 @@
 # Read `man 5 sway` for a complete reference.
+# use pywal colors
+
+
 
 ### Variables
 #
@@ -14,22 +17,21 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show drun | xargs swaymsg exec --
-
+set $menu rofi -show drun | xargs swaymsg exec --
+# filemanager
+set $filemanager thunar
 ### Output configuration
 output eDP-1 {
        mode 1920x1080@120Hz
        position 0,0
        adaptive_sync on
 }
-# wallpaper
-output * bg ~/bg.png fill
 ### Idle configuration
 #
 exec swayidle -w \
-       timeout 300 'swaylock' \
+       timeout 300 'grim -o eDP-1 - | convert - -blur 150,50 /tmp/lock.png && swaylock -i /tmp/lock.png' \
        timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-       before-sleep 'swaylock'
+       before-sleep 'grim -o eDP-1 - | convert - -blur 150,50 /tmp/lock.png && swaylock -i /tmp/lock.png'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -53,6 +55,16 @@ input "type:keyboard" {
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+
+# exec wal --theme ~/.config/sway/themes/onedark-me.json
+include "~/.cache/wal/colors-sway"
+
+# wallpaper
+output * bg ~/bg.png fill
+
+# cursor theme
+seat seat0 xcursor_theme "Posy's Cursor Strokeless" 32
+
 ### Key bindings
 #
 # Basics:
@@ -65,6 +77,9 @@ bindsym $mod+q kill
 
 # Start your launcher
 bindsym $mod+space exec $menu
+
+# launch filemanager
+bindsym $mod+e exec $filemanager
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -139,9 +154,8 @@ bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. 
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+s layout tababed
+    bindsym $mod+w layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
