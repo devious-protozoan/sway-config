@@ -24,7 +24,6 @@ set $filemanager thunar
 output eDP-1 {
        mode 1920x1080@120Hz
        position 0,0
-       adaptive_sync on
 }
 ### Idle configuration
 #
