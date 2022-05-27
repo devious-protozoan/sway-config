@@ -1,4 +1,9 @@
 daemonize
-image=~/bgl.png
+screenshots
+effect-pixelate=5
+effect-blur=10x10
+
 indicator-radius=150
 indicator-thickness=15
+indicator
+clock
